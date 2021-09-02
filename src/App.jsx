@@ -1,9 +1,9 @@
-import React from 'react';
+// import React from 'react';
 
-class App extends React.PureComponent {
-  render() {
-    return <div>pep</div>;
-  }
-}
+// class App extends React.PureComponent {
+//   render() {
+//     return <div>pep</div>;
+//   }
+// }
 
-export default App;
+// export default App;
