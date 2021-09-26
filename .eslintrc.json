@@ -13,6 +13,12 @@
   },
   "root": true,
   "rules": {
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto"
+      }
+    ],
     "react/prefer-stateless-function": "warn",
     "react/self-closing-comp": [
       "warn",
@@ -46,7 +52,6 @@
       "aspects": ["invalidHref"]
     }],
     "react/jsx-boolean-value": ["warn", "never"],
-    "react/jsx-closing-bracket-location": ["warn", "after-props"],
     "react/jsx-curly-spacing": ["warn", "never"],
     "react/jsx-filename-extension": ["warn", {
       "extensions": [".jsx"]
