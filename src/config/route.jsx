@@ -7,6 +7,12 @@ import Users from '../components/Users';
 
 const route = [
   {
+    url: '',
+    title: 'Home',
+    component: <KanbanBoard />,
+    exact: true,
+  },
+  {
     url: 'about',
     title: 'About',
     component: <About />,
@@ -15,12 +21,6 @@ const route = [
     url: 'users',
     title: 'Users',
     component: <Users />,
-  },
-  {
-    url: '',
-    title: 'Home',
-    component: <KanbanBoard />,
-    exact: true,
   },
   {
     url: 'dialogs',

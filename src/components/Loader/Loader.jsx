@@ -1,11 +1,16 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-closing-bracket-location */
 import React from 'react';
 import styles from './styles.scss';
 import svg from '../../assets/loading-process.svg';
 
-function Loader() {
+function Loader(props) {
+  const { isLoading } = props;
+
   return (
-    <div className={styles.loaderWrapper}>
+    <div
+      className={styles.loaderWrapper + ' ' + (isLoading ? styles.active : '')}
+    >
       <svg
         className={styles.loader}
         version="1.1"

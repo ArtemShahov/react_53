@@ -8,10 +8,10 @@ function Side() {
   return (
     <aside className={styles.side}>
       <nav>
-        <ul>
+        <ul className={styles.list}>
           {route.map((item) => {
             return (
-              <li key={item.title}>
+              <li key={item.title} className={styles.listItem}>
                 <Link to={`/${item.url}`}>{item.title}</Link>
               </li>
             );
