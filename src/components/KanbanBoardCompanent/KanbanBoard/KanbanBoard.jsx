@@ -10,7 +10,6 @@ import Board from '../Board';
 import Loader from '../../Loader/Loader.jsx';
 import selectors from './selectors.js';
 import actions from './actions.js';
-// import tasks from '../../../tasks';
 
 function KanbanBoard(props) {
   // const [data, setData] = useState({});
