@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useRouteMatch } from 'react-router-dom';
-// import classes from './style';
+// import styles from './style.scss';
 import users from '../../config/users';
 // import Dialog from '../Dialog';
 

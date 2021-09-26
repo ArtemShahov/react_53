@@ -1,16 +1,11 @@
 import React from 'react';
-import jss from 'jss';
-import preset from 'jss-preset-default';
 import { Switch, Route } from 'react-router-dom';
-import styles from './style.js';
+import styles from './style.scss';
 import routes from '../../config/route';
-
-jss.setup(preset());
-const { classes } = jss.createStyleSheet(styles).attach();
 
 function Main() {
   return (
-    <main className={classes.main}>
+    <main className={styles.main}>
       <Switch>
         {routes.map((item) => (
           <Route key={item.url} exact={!!item.exact} path={`/${item.url}`}>

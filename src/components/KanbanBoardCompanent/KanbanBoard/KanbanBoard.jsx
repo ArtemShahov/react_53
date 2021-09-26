@@ -2,20 +2,15 @@
 /* eslint-disable no-console */
 /* eslint-disable react/jsx-closing-bracket-location */
 import React, { useEffect } from 'react';
-import jss from 'jss';
-import preset from 'jss-preset-default';
 // import PropTypes from 'prop-types';
 import { DragDropContext } from 'react-beautiful-dnd';
 import { connect } from 'react-redux';
-import styles from './style.js';
+import styles from './style.scss';
 import Board from '../Board';
 import Loader from '../../Loader/Loader.jsx';
 import selectors from './selectors.js';
 import actions from './actions.js';
 // import tasks from '../../../tasks';
-
-jss.setup(preset());
-const { classes } = jss.createStyleSheet(styles).attach();
 
 function KanbanBoard(props) {
   // const [data, setData] = useState({});
@@ -35,7 +30,7 @@ function KanbanBoard(props) {
   return (
     <DragDropContext onDragEnd={handlerDragEnd}>
       {data?.columnOrder ? (
-        <div className={classes.mainBoard}>
+        <div className={styles.mainBoard}>
           {data.columnOrder.map((column) => {
             const { id, title, tasksId } = data.columns[column];
             const columnId = data.columns[column].id;
