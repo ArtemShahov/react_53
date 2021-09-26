@@ -4,8 +4,28 @@
   background-color: $dark;
   grid-area: side;
   border-radius: 2px solid $darker;
-  padding: 25px;
+  padding: 50px 25px;
   display: flex;
   flex-direction: flex-column;
   gap: 0px;
+}
+
+.list {
+  list-style-type: none;
+}
+
+.listItem a {
+  text-decoration: none;
+  color: $text;
+  font-weight: 700;
+  font-size: 20px;
+  transition: color .3s ease;
+}
+
+.listItem a:hover {
+  color: $lighter;
+}
+
+.listItem:not(:last-child) {
+  margin-bottom: 30px;
 }
