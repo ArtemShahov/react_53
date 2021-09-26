@@ -3,7 +3,7 @@ const styles = {
     height: '100vh',
     display: 'grid',
     gridTemplateColumns: '100px 1fr',
-    gridTemplateRows: '100px 1fr',
+    gridTemplateRows: '100px calc(100vh - 100px)',
     gridTemplateAreas: `
       "header header"
       "side main"

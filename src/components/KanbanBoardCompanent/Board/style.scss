@@ -1,0 +1,36 @@
+@import '../../../colors/colors.scss';
+
+.board {
+  background-color: tomato;
+  padding: 20px 5px 20px 20px;
+  border-radius: 5px;
+  display: grid;
+  grid-template-rows: 60px 1fr;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  overflow: hidden;
+}
+
+.title {
+  margin-bottom: 20px;
+  flex-grow: 0;
+}
+
+.boardTasks {
+  height: 100%;
+  overflow-y: scroll;
+}
+
+.boardTasks::-webkit-scrollbar {
+  width: 10px;
+}
+
+ 
+/* Handle */
+.boardTasks::-webkit-scrollbar-thumb {
+  background: darken($secondary, 30%);
+  border-radius: 5px;
+}
+
+.boardTasks::-webkit-scrollbar-thumb:hover {
+  background: #b30000; 
+}

@@ -35,4 +35,16 @@ export default [
       'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Delectus architecto reprehenderit laudantium consectetur molestiae nobis ad cupiditate voluptatem illum qui.',
     status: 'test',
   },
+  {
+    title: 'Task 7',
+    description:
+      'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Delectus architecto reprehenderit laudantium consectetur molestiae nobis ad cupiditate voluptatem illum qui.',
+    status: 'test',
+  },
+  {
+    title: 'Task 8',
+    description:
+      'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Delectus architecto reprehenderit laudantium consectetur molestiae nobis ad cupiditate voluptatem illum qui.',
+    status: 'done',
+  },
 ];

@@ -11,30 +11,31 @@ module.exports = {
     chunkFilename: '[name].js',
   },
   module: {
-    rules: [{
-      test: /\.(css|scss)$/,
-      use: [
-        'style-loader',
-        {
-          loader: 'css-loader',
-          options: {
-            sourceMap: true,
-            localsConvention: 'camelCase',
-            modules: {
-              localIdentName: '[local]___[hash:base64:5]'
-            }
-          }
-        },
-        'sass-loader'
-      ]
-    }]
+    rules: [
+      {
+        test: /\.(css|scss)$/,
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: true,
+              modules: {
+                localIdentName: '[local]___[hash:base64:5]',
+              },
+            },
+          },
+          'sass-loader',
+        ],
+      },
+    ],
   },
   devServer: {
     historyApiFallback: true,
     static: commonPaths.outputPath,
     compress: true,
     hot: true,
-    port: 9000
+    port: 9000,
   },
-  plugins: [new webpack.HotModuleReplacementPlugin()]
+  plugins: [new webpack.HotModuleReplacementPlugin()],
 };

@@ -1,23 +1,44 @@
+/* eslint-disable react/jsx-closing-bracket-location */
+/* eslint-disable react/jsx-props-no-spreading */
+/* eslint-disable react/prop-types */
+/* eslint-disable react/prefer-stateless-function */
+/* eslint-disable no-undef */
 import React from 'react';
-import jss from 'jss';
-import preset from 'jss-preset-default';
 import PropTypes from 'prop-types';
-import styles from './style.js';
+import { Droppable } from 'react-beautiful-dnd';
+import styles from './style.scss';
 import Tile from '../TileComponent/Tile';
 
-jss.setup(preset());
-const { classes } = jss.createStyleSheet(styles).attach();
-
-function Board({ title, description }) {
+function Board({ title, tasks, columnId }) {
   return (
-    <div className={classes.board}>
-      <Tile title={title} description={description} />
-    </div>
+    <Droppable droppableId={columnId}>
+      {(provided) => (
+        <div className={styles.board}>
+          <h2 className={styles.title}>{title}</h2>
+          <div
+            {...provided.droppableProps}
+            ref={provided.innerRef}
+            className={styles.boardTasks}
+          >
+            {tasks.map((el, index) => (
+              <Tile
+                key={el.id}
+                title={el.title}
+                description={el.content}
+                id={el.id}
+                index={index}
+              />
+            ))}
+            {provided.placeholder}
+          </div>
+        </div>
+      )}
+    </Droppable>
   );
 }
 
 Board.propTypes = {
   title: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
+  // tasks: PropTypes.arrayOf.isRequired,
 };
 export default Board;

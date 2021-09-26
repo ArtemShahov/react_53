@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-closing-bracket-location */
 import React from 'react';
 import jss from 'jss';
 import preset from 'jss-preset-default';
@@ -13,8 +14,8 @@ function Gear() {
       y="0px"
       width="25px"
       height="25.001px"
-      fill={colors.darker}
       viewBox="0 0 25 25.001"
+      fill={colors.darker}
     >
       <g>
         <path

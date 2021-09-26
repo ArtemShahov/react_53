@@ -1,8 +1,8 @@
 const eslint = require('eslint');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const commonPaths = require('./paths');
 const ESLintPlugin = require('eslint-webpack-plugin');
+const commonPaths = require('./paths');
 
 module.exports = {
   entry: commonPaths.entryPath,
@@ -12,12 +12,9 @@ module.exports = {
         test: /\.(ts|js)x?$/i,
         exclude: /node_modules/,
         use: {
-          loader: "babel-loader",
+          loader: 'babel-loader',
           options: {
-            presets: [
-              "@babel/preset-env",
-              "@babel/preset-react",
-            ],
+            presets: ['@babel/preset-env', '@babel/preset-react'],
           },
         },
       },
@@ -55,7 +52,7 @@ module.exports = {
       template: commonPaths.templatePath,
     }),
     new ESLintPlugin({
-      extensions: ["js", "jsx", "ts", "tsx"],
+      extensions: ['js', 'jsx', 'ts', 'tsx'],
     }),
   ],
 };

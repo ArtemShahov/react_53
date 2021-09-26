@@ -1,5 +1,5 @@
 export default {
   'tile-body': {
-    fontStyle: 'italic',
+    fontSize: '14px',
   },
 };
