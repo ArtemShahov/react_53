@@ -13,7 +13,7 @@ import actions from './actions.js';
 
 function KanbanBoard(props) {
   // const [data, setData] = useState({});
-  const { loadTasks, data, changeTask } = props;
+  const { loadTasks, data, changeTask, isLoading } = props;
   useEffect(() => {
     loadTasks();
   }, []);
@@ -28,30 +28,30 @@ function KanbanBoard(props) {
 
   return (
     <DragDropContext onDragEnd={handlerDragEnd}>
-      {data?.columnOrder ? (
-        <div className={styles.mainBoard}>
-          {data.columnOrder.map((column) => {
-            const { id, title, tasksId } = data.columns[column];
-            const columnId = data.columns[column].id;
-            return (
-              <Board
-                key={id}
-                columnId={columnId}
-                title={title}
-                tasks={tasksId.map((task) => data.tasks[task])}
-              />
-            );
-          })}
-        </div>
-      ) : (
-        <Loader />
-      )}
+      <div className={styles.mainBoard}>
+        {data.tasks
+          ? data.columnOrder.map((column) => {
+              const { id, title, tasksId } = data.columns[column];
+              const columnId = data.columns[column].id;
+              return (
+                <Board
+                  key={id}
+                  columnId={columnId}
+                  title={title}
+                  tasks={tasksId.map((task) => data.tasks[task])}
+                />
+              );
+            })
+          : ''}
+      </div>
+      <Loader isLoading={isLoading} />
     </DragDropContext>
   );
 }
 
 const mapStateToProps = (state) => ({
   data: selectors.getTasks(state),
+  isLoading: selectors.getIsLoading(state),
 });
 
 export default connect(mapStateToProps, { ...actions })(KanbanBoard);
