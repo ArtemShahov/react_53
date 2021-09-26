@@ -1,18 +1,13 @@
 import React from 'react';
 import { Link, useRouteMatch, Route } from 'react-router-dom';
-import jss from 'jss';
-import preset from 'jss-preset-default';
-import styles from './style.js';
+import styles from './style.scss';
 import users from '../../config/users';
 import User from '../User/User';
-
-jss.setup(preset());
-const { classes } = jss.createStyleSheet(styles).attach();
 
 function Users() {
   const { url } = useRouteMatch();
   return (
-    <div className={classes.usersWrap}>
+    <div className={styles.usersWrap}>
       <div>
         {users.map((item) => (
           <li key={item.fullName}>

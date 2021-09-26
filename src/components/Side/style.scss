@@ -1,0 +1,11 @@
+@import '../../colors/colors.scss';
+
+.side {
+  background-color: $dark;
+  grid-area: side;
+  border-radius: 2px solid $darker;
+  padding: 25px;
+  display: flex;
+  flex-direction: flex-column;
+  gap: 0px;
+}

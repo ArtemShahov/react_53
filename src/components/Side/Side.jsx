@@ -1,17 +1,12 @@
 import React from 'react';
-import jss from 'jss';
-import preset from 'jss-preset-default';
 import { Link } from 'react-router-dom';
-import styles from './style.js';
+import styles from './style.scss';
 import route from '../../config/route';
 // import Button from '../Button/Button.jsx';
 
-jss.setup(preset());
-const { classes } = jss.createStyleSheet(styles).attach();
-
 function Side() {
   return (
-    <aside className={classes.side}>
+    <aside className={styles.side}>
       <nav>
         <ul>
           {route.map((item) => {

@@ -1,15 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import jss from 'jss';
-import preset from 'jss-preset-default';
-import styles from './style.js';
-
-jss.setup(preset());
-const { classes } = jss.createStyleSheet(styles).attach();
+import styles from './style.scss';
 
 function Button({ text }) {
   return (
-    <button type="button" className={classes.btn}>
+    <button type="button" className={styles.btn}>
       {text}
     </button>
   );
