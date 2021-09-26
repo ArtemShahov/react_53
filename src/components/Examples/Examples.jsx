@@ -1,20 +1,25 @@
-import React, { useEffect, useState } from 'react';
+/* eslint-disable react/prop-types */
+import React from 'react';
+import { connect } from 'react-redux';
+import actions from './actions';
+import selector from './selector';
 
-function Examples() {
-  const [count, setCount] = useState(0);
-  useEffect(() => {
-    fetch('http://localhost:8080/tasks').then((e) => e.json());
-  });
+function Examples(props) {
+  const { count, setCount } = props;
   return (
     <div>
-      <button type="button" onClick={() => setCount(count + 1)}>
+      <button type="button" onClick={() => setCount(1)}>
         {count}
       </button>
-      <button type="button" onClick={() => setCount(count - 1)}>
+      <button type="button" onClick={() => setCount(-1)}>
         {count}
       </button>
     </div>
   );
 }
 
-export default Examples;
+const mapStateToProps = (state) => ({
+  count: selector.getCount(state),
+});
+
+export default connect(mapStateToProps, { ...actions })(Examples);
