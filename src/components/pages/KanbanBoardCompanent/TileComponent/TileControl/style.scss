@@ -1,6 +1,15 @@
+@import '../../../../../colors/colors.scss';
+
 .tileControl {
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
   background-image: url(./assets/gear.jsx);
   background-size: contain;
+  fill: $light;
+  transition: fill .3s ease;
+  cursor: pointer;
+}
+
+.tileControl:hover {
+  fill: $darker;
 }

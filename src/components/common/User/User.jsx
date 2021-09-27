@@ -1,7 +1,7 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import styles from './style.scss';
-import users from '../../config/users';
+import users from '../../../config/users';
 
 function User() {
   const { userUrl } = useParams();
