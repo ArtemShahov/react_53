@@ -20,7 +20,7 @@ $color: $darker;
 .loader {
   width: 150px;
   animation: rotating .5s ease  infinite;
-  fill: darken($secondary, 20%);
+  fill: $darker;
 }
 
 @keyframes rotating {

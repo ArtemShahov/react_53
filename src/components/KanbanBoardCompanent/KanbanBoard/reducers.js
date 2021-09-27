@@ -3,26 +3,31 @@ import { IS_LOADING, SET_TASKS, TASK_MOVE } from './actionsTypes';
 
 const initialState = {
   data: {
+    tasks: {},
     columns: {
       column_1: {
         id: 'column_1',
         title: 'To do',
         status: 'todo',
+        tasksId: [],
       },
       column_2: {
         id: 'column_2',
         title: 'PR',
         status: 'pr',
+        tasksId: [],
       },
       column_3: {
         id: 'column_3',
         title: 'In progress',
         status: 'progress',
+        tasksId: [],
       },
       column_4: {
         id: 'column_4',
         title: 'Done',
         status: 'done',
+        tasksId: [],
       },
     },
     columnOrder: ['column_1', 'column_2', 'column_3', 'column_4'],
