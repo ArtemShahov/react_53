@@ -2,7 +2,6 @@
 /* eslint-disable react/jsx-closing-bracket-location */
 import React from 'react';
 import styles from './styles.scss';
-import svg from '../../assets/loading-process.svg';
 
 function Loader(props) {
   const { isLoading } = props;
