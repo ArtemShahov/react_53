@@ -1,7 +1,7 @@
 @import '../../../../colors/colors.scss';
 
 .board {
-  background-color: tomato;
+  background-color: $light;
   padding: 20px 5px 20px 20px;
   border-radius: 5px;
   display: grid;
@@ -27,7 +27,7 @@
  
 /* Handle */
 .boardTasks::-webkit-scrollbar-thumb {
-  background: darken($secondary, 30%);
+  background: darken($secondary, 20%);
   border-radius: 5px;
 }
 

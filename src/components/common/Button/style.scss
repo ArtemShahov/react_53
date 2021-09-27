@@ -1,5 +1,12 @@
+@import '../../../colors/colors.scss';
+
 .btn {
-  padding: 20px;
-  color: tomato;
-  font-size: 24px;
+  background-color: $dark;
+  padding: 10px 20px;
+  color: $lighter;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
 }

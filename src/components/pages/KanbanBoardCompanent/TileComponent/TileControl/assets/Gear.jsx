@@ -1,13 +1,13 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-closing-bracket-location */
 import React from 'react';
-import jss from 'jss';
-import preset from 'jss-preset-default';
-import colors from '../../../../../../colors';
+// import colors from '../../../../../../colors';
 
-jss.setup(preset());
-function Gear() {
+function Gear(props) {
+  const { className } = props;
   return (
     <svg
+      className={className}
       version="1.1"
       id="Capa_1"
       x="0px"
@@ -15,7 +15,7 @@ function Gear() {
       width="25px"
       height="25.001px"
       viewBox="0 0 25 25.001"
-      fill={colors.darker}
+      // fill={colors.light}
     >
       <g>
         <path
