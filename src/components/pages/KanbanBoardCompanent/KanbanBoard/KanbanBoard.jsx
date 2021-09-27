@@ -15,7 +15,7 @@ function KanbanBoard(props) {
   // const [data, setData] = useState({});
   const { loadTasks, data, changeTask, isLoading } = props;
   useEffect(() => {
-    loadTasks();
+    if (!data.tasks) loadTasks();
   }, []);
 
   // const onDragEnd = (result) => {
@@ -29,20 +29,18 @@ function KanbanBoard(props) {
   return (
     <DragDropContext onDragEnd={handlerDragEnd}>
       <div className={styles.mainBoard}>
-        {data.tasks
-          ? data.columnOrder.map((column) => {
-              const { id, title, tasksId } = data.columns[column];
-              const columnId = data.columns[column].id;
-              return (
-                <Board
-                  key={id}
-                  columnId={columnId}
-                  title={title}
-                  tasks={tasksId.map((task) => data.tasks[task])}
-                />
-              );
-            })
-          : ''}
+        {data.columnOrder.map((column) => {
+          const { id, title, tasksId } = data.columns[column];
+          const columnId = data.columns[column].id;
+          return (
+            <Board
+              key={id}
+              columnId={columnId}
+              title={title}
+              tasks={tasksId.map((task) => data.tasks[task])}
+            />
+          );
+        })}
       </div>
       <Loader isLoading={isLoading} />
     </DragDropContext>
