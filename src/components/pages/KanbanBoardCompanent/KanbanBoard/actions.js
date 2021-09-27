@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import { TASK_MOVE, SET_TASKS, IS_LOADING } from './actionsTypes';
+import { TASK_MOVE, SET_TASKS, IS_LOADING, IS_VISIBLE } from './actionsTypes';
 import dataService from '../../../../services/dataService';
 
 const setTasks = (data) => {
@@ -7,6 +7,12 @@ const setTasks = (data) => {
   return {
     type: SET_TASKS,
     payload: { data },
+  };
+};
+
+const toggleModal = () => {
+  return {
+    type: IS_VISIBLE,
   };
 };
 
@@ -40,4 +46,11 @@ const changeTask = (result) => (dispatch) => {
   dispatch(taskMove(result));
 };
 
-export default { taskMove, setTasks, loadTasks, changeTask, setLoading };
+export default {
+  taskMove,
+  setTasks,
+  loadTasks,
+  changeTask,
+  setLoading,
+  toggleModal,
+};

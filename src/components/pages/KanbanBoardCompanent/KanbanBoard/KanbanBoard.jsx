@@ -10,10 +10,13 @@ import Board from '../Board';
 import selectors from './selectors.js';
 import actions from './actions.js';
 import Loader from '../../../common/Loader/Loader';
+import Button from '../../../common/Button/Button';
+import Modal from '../../../common/Modal';
 
 function KanbanBoard(props) {
   // const [data, setData] = useState({});
-  const { loadTasks, data, changeTask, isLoading } = props;
+  const { loadTasks, data, changeTask, isLoading, toggleModal, isVisible } =
+    props;
   useEffect(() => {
     if (!data.tasks) loadTasks();
   }, []);
@@ -22,12 +25,18 @@ function KanbanBoard(props) {
   //   //
   // };
 
+  function handlerOnClick() {
+    console.log('1');
+    toggleModal();
+  }
+
   function handlerDragEnd(result) {
     if (result.destination) changeTask(result);
   }
 
   return (
     <DragDropContext onDragEnd={handlerDragEnd}>
+      <Button onClick={handlerOnClick} text="Add new task" />
       <div className={styles.mainBoard}>
         {data.columnOrder.map((column) => {
           const { id, title, tasksId } = data.columns[column];
@@ -43,6 +52,7 @@ function KanbanBoard(props) {
         })}
       </div>
       <Loader isLoading={isLoading} />
+      <Modal isVisible={isVisible} toggleModal={toggleModal} />
     </DragDropContext>
   );
 }
@@ -50,6 +60,7 @@ function KanbanBoard(props) {
 const mapStateToProps = (state) => ({
   data: selectors.getTasks(state),
   isLoading: selectors.getIsLoading(state),
+  isVisible: selectors.checkVisible(state),
 });
 
 export default connect(mapStateToProps, { ...actions })(KanbanBoard);
