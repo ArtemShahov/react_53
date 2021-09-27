@@ -1,9 +1,9 @@
 import React from 'react';
-import About from '../components/About/About';
-import Dialogs from '../components/Dialogs';
-import Examples from '../components/Examples';
-import KanbanBoard from '../components/KanbanBoardCompanent/KanbanBoard';
-import Users from '../components/Users';
+import About from '../components/pages/About/About';
+import Dialogs from '../components/pages/Dialogs';
+import Examples from '../components/pages/Examples';
+import KanbanBoard from '../components/pages/KanbanBoardCompanent/KanbanBoard';
+import Users from '../components/pages/Users';
 
 const route = [
   {

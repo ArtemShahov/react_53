@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link, useRouteMatch, Route } from 'react-router-dom';
 import styles from './style.scss';
-import users from '../../config/users';
-import User from '../User/User';
+import users from '../../../config/users';
+import User from '../../User';
 
 function Users() {
   const { url } = useRouteMatch();

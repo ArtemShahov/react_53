@@ -7,9 +7,9 @@ import { DragDropContext } from 'react-beautiful-dnd';
 import { connect } from 'react-redux';
 import styles from './style.scss';
 import Board from '../Board';
-import Loader from '../../Loader/Loader.jsx';
 import selectors from './selectors.js';
 import actions from './actions.js';
+import Loader from '../../../Loader/Loader';
 
 function KanbanBoard(props) {
   // const [data, setData] = useState({});

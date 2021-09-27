@@ -2,7 +2,7 @@
 import React from 'react';
 import jss from 'jss';
 import preset from 'jss-preset-default';
-import colors from '../../../../../colors';
+import colors from '../../../../../../colors';
 
 jss.setup(preset());
 function Gear() {

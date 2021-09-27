@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 import { TASK_MOVE, SET_TASKS, IS_LOADING } from './actionsTypes';
-import dataService from '../../../services/dataService';
+import dataService from '../../../../services/dataService';
 
 const setTasks = (data) => {
   console.log(data);

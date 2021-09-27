@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './style.scss';
-import route from '../../config/route';
+import route from '../../../config/route';
 // import Button from '../Button/Button.jsx';
 
 function Side() {
