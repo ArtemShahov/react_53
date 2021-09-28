@@ -1,11 +1,9 @@
 .wrap {
-  display: flex;
-  width: 600px;
-  gap: 20px;
+  width: 350px;
 }
 
-.column {
-  width: 300px;
+.header {
+  position: relative;
 }
 
 .closer {
@@ -15,33 +13,15 @@
   width: 30px;
   height: 30px;
   cursor: pointer;
+  background-color: none;
+  border: none;
 }
 
-.header {
-  position: relative;
+.fieldSet>:not(:last-child) {
+  margin-bottom: 20px;
 }
 
-.closer::before {
-  content: '';
-  display: block;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 3px;
-  height: 30px;
-  border-radius: 1.5px;
-  background-color: #000;
-  transform: translate(-50%, -50%) rotate(45deg);
-}
-.closer::after {
-  content: '';
-  display: block;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 3px;
-  height: 30px;
-  border-radius: 1.5px;
-  background-color: #000;
-  transform: translate(-50%, -50%) rotate(-45deg);
+.btnWrap {
+  display: flex;
+  justify-content: space-between;
 }
