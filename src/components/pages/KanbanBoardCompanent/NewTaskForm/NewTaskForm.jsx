@@ -22,7 +22,16 @@ import styles from './style.scss';
 import actions from '../KanbanBoard/actions';
 
 function NewTaskForm(props) {
-  const { toggleModal } = props;
+  const { toggleModal, addTask } = props;
+  function handlerClick() {
+    addTask({
+      taskData: {
+        title: '1',
+        content: '2',
+      },
+      statusData: 'todo',
+    });
+  }
 
   return (
     <div className={styles.wrap}>
@@ -74,7 +83,9 @@ function NewTaskForm(props) {
             </Select>
           </FormControl>
           <div className={styles.btnWrap}>
-            <Button variant="contained">Отправить</Button>
+            <Button variant="contained" onClick={handlerClick}>
+              Отправить
+            </Button>
             <Button>Очистить</Button>
           </div>
         </div>
@@ -89,25 +100,3 @@ function NewTaskForm(props) {
 // };
 
 export default connect(null, { ...actions })(NewTaskForm);
-
-/* <TextField
-fullWidth
-id="filled-basic"
-label="Filled"
-variant="outlined"
-/>
-<TextField
-fullWidth
-id="standard-basic"
-label="Standard"
-variant="outlined"
-/>
-<TextField
-fullWidth
-fullHeight
-id="outlined-multiline-flexible"
-multiline
-rows={4}
-label="Outlined"
-variant="outlined"
-/> */

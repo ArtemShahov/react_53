@@ -46,6 +46,13 @@ const changeTask = (result) => (dispatch) => {
   dispatch(taskMove(result));
 };
 
+const addTask = (newTask) => (dispatch) => {
+  dataService.createTask(newTask).then(() => {
+    console.log(newTask);
+    dispatch(loadTasks());
+  });
+};
+
 export default {
   taskMove,
   setTasks,
@@ -53,4 +60,5 @@ export default {
   changeTask,
   setLoading,
   toggleModal,
+  addTask,
 };
