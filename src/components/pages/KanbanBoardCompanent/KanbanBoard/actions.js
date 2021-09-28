@@ -35,6 +35,7 @@ const setLoading = (boolean) => {
 };
 
 const loadTasks = () => (dispatch) => {
+  console.log('load');
   dispatch(setLoading(true));
   dataService.getTasks().then((data) => {
     dispatch(setTasks(data));
@@ -43,12 +44,13 @@ const loadTasks = () => (dispatch) => {
 };
 
 const changeTask = (result) => (dispatch) => {
+  dataService.updateTasks(result);
   dispatch(taskMove(result));
+  dispatch(loadTasks());
 };
 
 const addTask = (newTask) => (dispatch) => {
   dataService.createTask(newTask).then(() => {
-    console.log(newTask);
     dispatch(loadTasks());
   });
 };

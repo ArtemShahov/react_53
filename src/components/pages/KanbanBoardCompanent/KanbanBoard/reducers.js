@@ -47,10 +47,8 @@ export const kanbanReducer = (state = initialState, action) => {
       };
     }
     case TASK_MOVE: {
-      console.log({ ...state });
       const newData = { ...state.data };
       const { draggableId, source, destination } = action.payload.result;
-      // console.log(source, destination, state.data);
       const sourceArray = newData.columns[source.droppableId].tasksId;
       const destinationArray = newData.columns[destination.droppableId].tasksId;
       sourceArray.splice(source.index, 1);
