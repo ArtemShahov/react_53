@@ -6,12 +6,11 @@ import styles from './styles.scss';
 
 function Modal(props) {
   const { children, isVisible, toggleModal } = props;
+
   return (
-    <div
-      onClick={toggleModal}
-      className={styles.modal + ' ' + (isVisible ? styles.active : '')}
-    >
-      {children}
+    <div className={styles.overlay + ' ' + (isVisible ? styles.active : '')}>
+      <div className={styles.modal} onClick={toggleModal} />
+      <div className={styles.modalContent}>{children}</div>
     </div>
   );
 }

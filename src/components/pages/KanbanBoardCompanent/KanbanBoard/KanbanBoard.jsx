@@ -12,6 +12,7 @@ import actions from './actions.js';
 import Loader from '../../../common/Loader/Loader';
 import Button from '../../../common/Button/Button';
 import Modal from '../../../common/Modal';
+import NewTaskForm from '../NewTaskForm';
 
 function KanbanBoard(props) {
   // const [data, setData] = useState({});
@@ -52,7 +53,9 @@ function KanbanBoard(props) {
         })}
       </div>
       <Loader isLoading={isLoading} />
-      <Modal isVisible={isVisible} toggleModal={toggleModal} />
+      <Modal isVisible={isVisible} toggleModal={toggleModal}>
+        <NewTaskForm />
+      </Modal>
     </DragDropContext>
   );
 }

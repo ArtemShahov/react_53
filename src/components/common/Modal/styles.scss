@@ -1,4 +1,4 @@
-.modal {
+.overlay {
   display: none;
   justify-content: center;
   align-items: center;
@@ -7,9 +7,21 @@
   left: 0;
   right: 0;
   bottom: 0;
+}
+
+.modal {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
   background-color: rgba($color: #000000, $alpha: .2);
 }
 
-.modal.active {
+.overlay.active {
   display: flex;
+}
+
+.modalContent {
+  z-index: 1;
 }

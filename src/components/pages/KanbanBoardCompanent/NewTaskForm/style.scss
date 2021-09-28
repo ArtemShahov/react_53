@@ -1,0 +1,47 @@
+.wrap {
+  display: flex;
+  width: 600px;
+  gap: 20px;
+}
+
+.column {
+  width: 300px;
+}
+
+.closer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.header {
+  position: relative;
+}
+
+.closer::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 3px;
+  height: 30px;
+  border-radius: 1.5px;
+  background-color: #000;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+.closer::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 3px;
+  height: 30px;
+  border-radius: 1.5px;
+  background-color: #000;
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
