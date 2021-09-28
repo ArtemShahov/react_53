@@ -1,10 +1,24 @@
 @import '../../../../colors/colors.scss';
 
-.mainBoard {
+.mainBoardWrap {
   padding: 20px;
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  height: 100%;
+}
+
+.header {
+  background-color: $darker;
+  padding: 20px;
+
+}
+
+.mainBoard {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
   height: 100%;
   background-color: $lighter;
+  overflow: hidden;
 }

@@ -1,0 +1,27 @@
+.wrap {
+  width: 350px;
+}
+
+.header {
+  position: relative;
+}
+
+.closer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  background-color: none;
+  border: none;
+}
+
+.fieldSet>:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.btnWrap {
+  display: flex;
+  justify-content: space-between;
+}

@@ -10,10 +10,14 @@ import Board from '../Board';
 import selectors from './selectors.js';
 import actions from './actions.js';
 import Loader from '../../../common/Loader/Loader';
+import Button from '../../../common/Button/Button';
+import Modal from '../../../common/Modal';
+import NewTaskForm from '../NewTaskForm';
 
 function KanbanBoard(props) {
   // const [data, setData] = useState({});
-  const { loadTasks, data, changeTask, isLoading } = props;
+  const { loadTasks, data, changeTask, isLoading, toggleModal, isVisible } =
+    props;
   useEffect(() => {
     if (!data.tasks) loadTasks();
   }, []);
@@ -22,34 +26,48 @@ function KanbanBoard(props) {
   //   //
   // };
 
+  function handlerOnClick() {
+    console.log('1');
+    toggleModal();
+  }
+
   function handlerDragEnd(result) {
     if (result.destination) changeTask(result);
   }
 
   return (
-    <DragDropContext onDragEnd={handlerDragEnd}>
-      <div className={styles.mainBoard}>
-        {data.columnOrder.map((column) => {
-          const { id, title, tasksId } = data.columns[column];
-          const columnId = data.columns[column].id;
-          return (
-            <Board
-              key={id}
-              columnId={columnId}
-              title={title}
-              tasks={tasksId.map((task) => data.tasks[task])}
-            />
-          );
-        })}
-      </div>
-      <Loader isLoading={isLoading} />
-    </DragDropContext>
+    <div className={styles.mainBoardWrap}>
+      <DragDropContext onDragEnd={handlerDragEnd}>
+        <div className={styles.header}>
+          <Button onClick={handlerOnClick} text="Add new task" />
+        </div>
+        <div className={styles.mainBoard}>
+          {data.columnOrder.map((column) => {
+            const { id, title, tasksId } = data.columns[column];
+            const columnId = data.columns[column].id;
+            return (
+              <Board
+                key={id}
+                columnId={columnId}
+                title={title}
+                tasks={tasksId.map((task) => data.tasks[task])}
+              />
+            );
+          })}
+        </div>
+        <Loader isLoading={isLoading} />
+        <Modal isVisible={isVisible} toggleModal={toggleModal}>
+          <NewTaskForm />
+        </Modal>
+      </DragDropContext>
+    </div>
   );
 }
 
 const mapStateToProps = (state) => ({
   data: selectors.getTasks(state),
   isLoading: selectors.getIsLoading(state),
+  isVisible: selectors.checkVisible(state),
 });
 
 export default connect(mapStateToProps, { ...actions })(KanbanBoard);

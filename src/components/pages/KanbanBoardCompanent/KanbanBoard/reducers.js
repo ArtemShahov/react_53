@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import { IS_LOADING, SET_TASKS, TASK_MOVE } from './actionsTypes';
+import { IS_LOADING, SET_TASKS, TASK_MOVE, IS_VISIBLE } from './actionsTypes';
 
 const initialState = {
   data: {
@@ -33,6 +33,7 @@ const initialState = {
     columnOrder: ['column_1', 'column_2', 'column_3', 'column_4'],
   },
   isLoading: null,
+  isVisible: false,
 };
 
 export const kanbanReducer = (state = initialState, action) => {
@@ -63,6 +64,13 @@ export const kanbanReducer = (state = initialState, action) => {
       return {
         ...state,
         isLoading: boolean,
+      };
+    }
+    case IS_VISIBLE: {
+      const cur = state.isVisible;
+      return {
+        ...state,
+        isVisible: !cur,
       };
     }
     default:

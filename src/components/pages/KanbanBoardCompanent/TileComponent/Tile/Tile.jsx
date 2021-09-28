@@ -7,7 +7,9 @@ import styles from './style.scss';
 import TileHeader from '../TileHeader';
 import TileBody from '../TileBody';
 
-function Tile({ title, description, id, index }) {
+function Tile(props) {
+  const { title, description, id, index } = props;
+
   return (
     <Draggable draggableId={id} index={index}>
       {(provided) => (
