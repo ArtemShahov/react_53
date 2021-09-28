@@ -33,6 +33,7 @@ function KanbanBoard(props) {
 
   function handlerDragEnd(result) {
     if (result.destination) changeTask(result);
+    console.log('kanban', result);
   }
 
   return (

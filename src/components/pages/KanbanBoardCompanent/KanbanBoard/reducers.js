@@ -1,5 +1,6 @@
 /* eslint-disable no-console */
 import { IS_LOADING, SET_TASKS, TASK_MOVE, IS_VISIBLE } from './actionsTypes';
+import dataService from '../../../../services/dataService';
 
 const initialState = {
   data: {
@@ -46,14 +47,13 @@ export const kanbanReducer = (state = initialState, action) => {
       };
     }
     case TASK_MOVE: {
-      console.log({ ...state });
       const newData = { ...state.data };
       const { draggableId, source, destination } = action.payload.result;
-      // console.log(source, destination, state.data);
       const sourceArray = newData.columns[source.droppableId].tasksId;
       const destinationArray = newData.columns[destination.droppableId].tasksId;
       sourceArray.splice(source.index, 1);
       destinationArray.splice(destination.index, 0, draggableId);
+      dataService.updateTasks(state.data);
       return {
         ...state,
         data: newData,
