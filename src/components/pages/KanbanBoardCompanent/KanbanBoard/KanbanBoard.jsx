@@ -36,27 +36,31 @@ function KanbanBoard(props) {
   }
 
   return (
-    <DragDropContext onDragEnd={handlerDragEnd}>
-      <Button onClick={handlerOnClick} text="Add new task" />
-      <div className={styles.mainBoard}>
-        {data.columnOrder.map((column) => {
-          const { id, title, tasksId } = data.columns[column];
-          const columnId = data.columns[column].id;
-          return (
-            <Board
-              key={id}
-              columnId={columnId}
-              title={title}
-              tasks={tasksId.map((task) => data.tasks[task])}
-            />
-          );
-        })}
-      </div>
-      <Loader isLoading={isLoading} />
-      <Modal isVisible={isVisible} toggleModal={toggleModal}>
-        <NewTaskForm />
-      </Modal>
-    </DragDropContext>
+    <div className={styles.mainBoardWrap}>
+      <DragDropContext onDragEnd={handlerDragEnd}>
+        <div className={styles.header}>
+          <Button onClick={handlerOnClick} text="Add new task" />
+        </div>
+        <div className={styles.mainBoard}>
+          {data.columnOrder.map((column) => {
+            const { id, title, tasksId } = data.columns[column];
+            const columnId = data.columns[column].id;
+            return (
+              <Board
+                key={id}
+                columnId={columnId}
+                title={title}
+                tasks={tasksId.map((task) => data.tasks[task])}
+              />
+            );
+          })}
+        </div>
+        <Loader isLoading={isLoading} />
+        <Modal isVisible={isVisible} toggleModal={toggleModal}>
+          <NewTaskForm />
+        </Modal>
+      </DragDropContext>
+    </div>
   );
 }
 
