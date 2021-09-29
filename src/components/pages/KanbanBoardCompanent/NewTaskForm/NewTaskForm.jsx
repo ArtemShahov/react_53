@@ -16,22 +16,41 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
 import Button from '@mui/material/Button';
+import selectors from '../KanbanBoard/selectors';
 import kanbanConfig from '../../../../config/kanbanBoardsConfig';
 // import Box from '@mui/material/Box';
 import styles from './style.scss';
 import actions from '../KanbanBoard/actions';
 
 function NewTaskForm(props) {
-  const { toggleModal, addTask } = props;
+  const { toggleModal, addTask, title, content, assign, status, changeInput } =
+    props;
   function handlerClick() {
     addTask({
       taskData: {
-        title: '1',
-        content: '2',
+        title,
+        content,
       },
-      statusData: 'todo',
+      statusData: status,
     });
   }
+
+  const handlerChange = (field, value) => {
+    changeInput(field, value);
+    // console.log(field, value);
+  };
+
+  const useChangeTextField = (field, fieldName) => {
+    return {
+      value: field,
+      onChange: (event) => handlerChange(fieldName, event.target.value),
+    };
+  };
+
+  const titleField = useChangeTextField(title, 'title');
+  const contentField = useChangeTextField(content, 'content');
+  const assignField = useChangeTextField(assign, 'assign');
+  const statusField = useChangeTextField(status, 'status');
 
   return (
     <div className={styles.wrap}>
@@ -50,18 +69,21 @@ function NewTaskForm(props) {
         </header>
         <div className={styles.fieldSet}>
           <TextField
+            {...titleField}
             fullWidth
             id="filled-basic"
             label="Title"
             variant="outlined"
           />
           <TextField
+            {...contentField}
             fullWidth
             id="filled-basic"
             label="Status"
             variant="outlined"
           />
           <TextField
+            {...assignField}
             fullWidth
             id="filled-basic"
             label="Filled"
@@ -70,6 +92,7 @@ function NewTaskForm(props) {
           <FormControl fullWidth>
             <InputLabel id="demo-simple-select-helper-label">Status</InputLabel>
             <Select
+              {...statusField}
               fullWidth
               labelId="Status"
               id="demo-simple-select"
@@ -99,4 +122,11 @@ function NewTaskForm(props) {
 //   // tasks: PropTypes.arrayOf.isRequired,
 // };
 
-export default connect(null, { ...actions })(NewTaskForm);
+const mapStateToProps = (state) => ({
+  title: selectors.getTaskTitle(state),
+  content: selectors.getTaskContent(state),
+  assign: selectors.getTaskAssign(state),
+  status: selectors.getTaskStatus(state),
+});
+
+export default connect(mapStateToProps, { ...actions })(NewTaskForm);

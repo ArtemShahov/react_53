@@ -1,8 +1,20 @@
 /* eslint-disable no-console */
-import { IS_LOADING, SET_TASKS, TASK_MOVE, IS_VISIBLE } from './actionsTypes';
+import {
+  IS_LOADING,
+  SET_TASKS,
+  TASK_MOVE,
+  IS_VISIBLE,
+  SET_INPUT,
+} from './actionsTypes';
 import dataService from '../../../../services/dataService';
 
 const initialState = {
+  taskForm: {
+    title: '',
+    content: '',
+    assign: '',
+    status: '',
+  },
   data: {
     tasks: null,
     columns: {
@@ -71,6 +83,16 @@ export const kanbanReducer = (state = initialState, action) => {
       return {
         ...state,
         isVisible: !cur,
+      };
+    }
+    case SET_INPUT: {
+      const newTask = { ...state.taskForm };
+      const { field, value } = action.payload;
+      console.log(field);
+      newTask[field] = value;
+      return {
+        ...state,
+        taskForm: { ...newTask },
       };
     }
     default:

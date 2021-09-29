@@ -1,5 +1,11 @@
 /* eslint-disable no-console */
-import { TASK_MOVE, SET_TASKS, IS_LOADING, IS_VISIBLE } from './actionsTypes';
+import {
+  TASK_MOVE,
+  SET_TASKS,
+  IS_LOADING,
+  IS_VISIBLE,
+  SET_INPUT,
+} from './actionsTypes';
 import dataService from '../../../../services/dataService';
 
 const setTasks = (data) => {
@@ -34,6 +40,16 @@ const setLoading = (boolean) => {
   };
 };
 
+const setInput = (field, value) => {
+  return {
+    type: SET_INPUT,
+    payload: {
+      field,
+      value,
+    },
+  };
+};
+
 const loadTasks = () => (dispatch) => {
   console.log('load');
   dispatch(setLoading(true));
@@ -55,6 +71,10 @@ const addTask = (newTask) => (dispatch) => {
   });
 };
 
+const changeInput = (field, value) => (dispatch) => {
+  dispatch(setInput(field, value));
+};
+
 export default {
   taskMove,
   setTasks,
@@ -63,4 +83,5 @@ export default {
   setLoading,
   toggleModal,
   addTask,
+  changeInput,
 };
