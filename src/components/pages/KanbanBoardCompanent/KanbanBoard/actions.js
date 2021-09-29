@@ -5,6 +5,7 @@ import {
   IS_LOADING,
   IS_VISIBLE,
   SET_INPUT,
+  DEL_TASK,
 } from './actionsTypes';
 import dataService from '../../../../services/dataService';
 
@@ -50,6 +51,16 @@ const setInput = (field, value) => {
   };
 };
 
+const delTask = (id, columnId) => {
+  return {
+    type: DEL_TASK,
+    payload: {
+      id,
+      columnId,
+    },
+  };
+};
+
 const loadTasks = () => (dispatch) => {
   console.log('load');
   dispatch(setLoading(true));
@@ -71,6 +82,10 @@ const addTask = (newTask) => (dispatch) => {
   });
 };
 
+const deleteTask = (id, columnId) => (dispatch) => {
+  dispatch(delTask(id, columnId));
+};
+
 const changeInput = (field, value) => (dispatch) => {
   dispatch(setInput(field, value));
 };
@@ -84,4 +99,5 @@ export default {
   toggleModal,
   addTask,
   changeInput,
+  deleteTask,
 };

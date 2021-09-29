@@ -14,16 +14,11 @@ import Modal from '../../../common/Modal';
 import NewTaskForm from '../NewTaskForm';
 
 function KanbanBoard(props) {
-  // const [data, setData] = useState({});
   const { loadTasks, data, changeTask, isLoading, toggleModal, isVisible } =
     props;
   useEffect(() => {
     if (!data.tasks) loadTasks();
   }, []);
-
-  // const onDragEnd = (result) => {
-  //   //
-  // };
 
   function handlerOnClick() {
     toggleModal();

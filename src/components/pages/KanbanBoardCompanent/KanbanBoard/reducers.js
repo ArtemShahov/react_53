@@ -5,6 +5,7 @@ import {
   TASK_MOVE,
   IS_VISIBLE,
   SET_INPUT,
+  DEL_TASK,
 } from './actionsTypes';
 import dataService from '../../../../services/dataService';
 
@@ -93,6 +94,17 @@ export const kanbanReducer = (state = initialState, action) => {
       return {
         ...state,
         taskForm: { ...newTask },
+      };
+    }
+    case DEL_TASK: {
+      const { id, columnId } = action.payload;
+      const newData = { ...state.data };
+      const idIndex = newData.columns[columnId].tasksId.indexOf(id);
+      delete newData.tasks[id];
+      newData.columns[columnId].tasksId.splice(idIndex, 1);
+      return {
+        ...state,
+        data: newData,
       };
     }
     default:
