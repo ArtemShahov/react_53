@@ -1,5 +1,4 @@
 /* eslint-disable react/prop-types */
-/* eslint-disable no-console */
 /* eslint-disable react/jsx-closing-bracket-location */
 import React, { useEffect } from 'react';
 // import PropTypes from 'prop-types';
@@ -27,13 +26,16 @@ function KanbanBoard(props) {
   // };
 
   function handlerOnClick() {
-    console.log('1');
     toggleModal();
   }
 
   function handlerDragEnd(result) {
-    if (result.destination) changeTask(result);
-    console.log('kanban', result);
+    if (result.destination) {
+      const checkDroppableId =
+        result.destination.droppableId === result.source.droppableId;
+      const checkIndex = result.destination.index === result.source.index;
+      if (!(checkDroppableId && checkIndex)) changeTask(result);
+    }
   }
 
   return (
