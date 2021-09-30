@@ -27,6 +27,7 @@ function Board({ title, tasks, columnId }) {
                 description={el.content}
                 id={el.id}
                 index={index}
+                columnId={columnId}
               />
             ))}
             {provided.placeholder}

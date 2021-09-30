@@ -8,7 +8,7 @@ import TileHeader from '../TileHeader';
 import TileBody from '../TileBody';
 
 function Tile(props) {
-  const { title, description, id, index } = props;
+  const { title, description, id, index, columnId } = props;
 
   return (
     <Draggable draggableId={id} index={index}>
@@ -19,7 +19,7 @@ function Tile(props) {
           {...provided.dragHandleProps}
           ref={provided.innerRef}
         >
-          <TileHeader title={title} />
+          <TileHeader title={title} id={id} columnId={columnId} />
           <TileBody description={description} />
         </div>
       )}
@@ -32,6 +32,7 @@ Tile.propTypes = {
   description: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
   index: PropTypes.number.isRequired,
+  columnId: PropTypes.string.isRequired,
 };
 
 export default Tile;
