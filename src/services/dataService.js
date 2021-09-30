@@ -31,6 +31,17 @@ const updateTasks = async (data) => {
   return response.json();
 };
 
+const delTask = async (data) => {
+  const response = await fetch('http://localhost:8080/delTask', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(data),
+  });
+  return response.json();
+};
+
 const deleteTask = async () => {};
 
 export default {
@@ -38,16 +49,5 @@ export default {
   createTask,
   deleteTask,
   updateTasks,
+  delTask,
 };
-
-// const createTask = async () => {
-//   const response = await fetch('http://localhost:8080/addTask', {
-//     method: 'POST',
-//     headers: {
-//       'Content-Type': 'application/json',
-//     },
-//     body: JSON.stringify(data),
-//   });
-//   console.log(data);
-//   return response.json();
-// };

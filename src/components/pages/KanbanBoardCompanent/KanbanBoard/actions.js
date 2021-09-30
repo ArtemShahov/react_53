@@ -83,6 +83,8 @@ const addTask = (newTask) => (dispatch) => {
 };
 
 const deleteTask = (id, columnId) => (dispatch) => {
+  dataService.delTask({ id, columnId });
+  console.log({ id, columnId });
   dispatch(delTask(id, columnId));
 };
 
