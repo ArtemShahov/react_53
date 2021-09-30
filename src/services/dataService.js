@@ -20,7 +20,7 @@ const createTask = async (data = {}) => {
   return response.json();
 };
 
-const updateTasks = async (data) => {
+const updateTasks = async (data = {}) => {
   const response = await fetch('http://localhost:8080/updateTask', {
     method: 'POST',
     headers: {

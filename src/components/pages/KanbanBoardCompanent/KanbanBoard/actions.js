@@ -10,7 +10,6 @@ import {
 import dataService from '../../../../services/dataService';
 
 const setTasks = (data) => {
-  console.log(data);
   return {
     type: SET_TASKS,
     payload: { data },
@@ -62,7 +61,6 @@ const delTask = (id, columnId) => {
 };
 
 const loadTasks = () => (dispatch) => {
-  console.log('load');
   dispatch(setLoading(true));
   dataService.getTasks().then((data) => {
     dispatch(setTasks(data));
@@ -71,8 +69,9 @@ const loadTasks = () => (dispatch) => {
 };
 
 const changeTask = (result) => (dispatch) => {
-  dataService.updateTasks(result);
   dispatch(taskMove(result));
+  // console.log(result);
+  dataService.updateTasks(result);
   dispatch(loadTasks());
 };
 

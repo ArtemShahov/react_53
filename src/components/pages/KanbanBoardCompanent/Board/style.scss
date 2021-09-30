@@ -1,13 +1,12 @@
 @import '../../../../colors/colors.scss';
 
 .board {
-  background-color: $light;
   padding: 20px 5px 20px 20px;
   border-radius: 5px;
   display: grid;
   grid-template-rows: 60px 1fr;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   overflow: hidden;
+  height: 100%;
 }
 
 .title {

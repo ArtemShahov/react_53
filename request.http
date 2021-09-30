@@ -6,3 +6,25 @@ Content-Type: application/json
 {
   "body" : 1
 }
+
+###
+
+POST http://localhost:8080/updateTask
+
+Content-Type: application/json
+
+{
+    "draggableId": "task_6",
+    "type": "DEFAULT",
+    "source": {
+        "index": 0,
+        "droppableId": "column_4"
+    },
+    "reason": "DROP",
+    "mode": "FLUID",
+    "destination": {
+        "droppableId": "column_3",
+        "index": 0
+    },
+    "combine": null
+}
